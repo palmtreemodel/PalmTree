@@ -20,7 +20,7 @@ dataflow_gen.py: generate dataflow dataset for PalmTree model via Binary Ninja a
 control_flow_gen.py: generate control flow dataset for PalmTree model using Binary Ninja API.
 
 ### Dataset format
-txt file with is easy to read and check. Data-flow and control-flow graph will be sampled by random walk algorithm. And then splitted into instruction pairs.
+TXT files. Data-flow and control-flow graph will be sampled by random walk algorithm. And then splitted into instruction pairs.
 For a given instruction sequence
 ```
 push rbp
