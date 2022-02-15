@@ -13,8 +13,30 @@ Xuezixiang Li, Yu Qu, and Heng Yin, "PalmTree: Learning an Assembly Language Mod
 - pytorch >= 1.3.1
 - binary ninja (optional, for dataset generation)
 
+## Updates
+### Dataset generator
+
+dataflow_gen.py: generate dataflow dataset for PalmTree model via Binary Ninja and Binary ninja mid-level IR. 
+control_flow_gen.py: generate control flow dataset for PalmTree model using Binary Ninja API.
+
+### Dataset format
+txt file with is easy to read and check. Data-flow and control-flow graph will be sampled by random walk algorithm. And then splitted into instruction pairs.
+For a given instruction sequence
+```
+push rbp
+mov rbp, rsp
+sub rsp, 0x20
+```
+Two lines of instruction pairs will be generated:
+```
+push rbp    mov rbp rsp
+mov rbp rsp sub rsp 0x20
+```
+In detail:
+```
+push\<SPACE\>rbp<\t>mov\<SPACE\>rbp\<SPACE\>rsp<\n>
+```
 ## TODO:
 
-- Dataset generator
 - Support more binary tools (Ghidra, IDA pro, etc.)
 - Support Docker
