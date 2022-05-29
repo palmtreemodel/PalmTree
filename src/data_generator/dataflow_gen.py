@@ -37,19 +37,19 @@ def parse_instruction(ins, symbol_map, string_map):
     return ' '.join([opcode]+operand)
 
 
-def random_walk(g,length, symbol_map, string_map, str_list):
+def random_walk(g,length, symbol_map, string_map):
     sequence = []
     for n in g:
         if n != -1 and g.node[n]['text'] != None:
             s = []
             l = 0
-            s.append(parse_instruction(g.node[n]['text'], symbol_map, string_map, str_list))
+            s.append(parse_instruction(g.node[n]['text'], symbol_map, string_map))
             cur = n
             while l < length:
                 nbs = list(g.successors(cur))
                 if len(nbs):
                     cur = random.choice(nbs)
-                    s.append(parse_instruction(g.node[cur]['text'], symbol_map, string_map, str_list))
+                    s.append(parse_instruction(g.node[cur]['text'], symbol_map, string_map))
                     l += 1
                 else:
                     break
@@ -58,7 +58,7 @@ def random_walk(g,length, symbol_map, string_map, str_list):
 
 
 
-def process_file(f, str_list):
+def process_file(f):
     symbol_map = {}
     string_map = {}
     print(f)
@@ -104,7 +104,7 @@ def process_file(f, str_list):
     
     with open('dfg_train.txt', 'a') as w:
         for name, graph in function_graphs.items():
-            sequence = random_walk(graph, 40, symbol_map, string_map, str_list)
+            sequence = random_walk(graph, 40, symbol_map, string_map)
             for s in sequence:
                if len(s) >= 2:
                     for idx in range(1, len(s)):
@@ -126,13 +126,12 @@ def main():
     bin_folder = '/path/to/binaries'
     file_lst = []
     str_counter = Counter()
-    str_list = []
     for parent, subdirs, files in os.walk(bin_folder):
         if files:
             for f in files:
                 file_lst.append(os.path.join(parent,f))
     for f in tqdm(file_lst):
-        process_file(f,str_list)
+        process_file(f)
 
 
 if __name__ == "__main__":
