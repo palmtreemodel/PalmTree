@@ -14,6 +14,21 @@ Xuezixiang Li, Yu Qu, and Heng Yin, "PalmTree: Learning an Assembly Language Mod
 - binary ninja (optional, for dataset generation)
 
 ## Updates
+
+### extrinsic evaluations
+We released code for extrinsic evaluations. But it is not stable yet. Please checkout to the new preview branch.
+
+Extrinsic evluations including:
+- Gemini
+- EKALVYA
+- DeepVSA
+
+### intrinsic evaluations
+Intrinsic evlautions including:
+- Opcode Outlier detection
+- Operand Outlier detection
+- Basicblock matching
+
 ### Dataset generator
 
 dataflow_gen.py: generate dataflow dataset for PalmTree model via Binary Ninja and Binary ninja mid-level IR. 
