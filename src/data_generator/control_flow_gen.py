@@ -6,7 +6,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from itertools import product
 from sklearn.decomposition import PCA
 from  collections import Counter
-from registers import *
 import random
 import os
 import re

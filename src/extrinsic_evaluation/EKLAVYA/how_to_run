@@ -1,0 +1,2 @@
+
+python code/RNN/train/train_rnn.py -d /EKLAVYA/smalldata/pickles/x64/ -o /EKLAVYA/outputs/ -f /EKLAVYA/outputs/split_func.pkl -m /EKLAVYA/outputs/model -ed 128 -et trans -e /EKLAVYA/outputs/embed.emb

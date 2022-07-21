@@ -11,7 +11,6 @@ import re
 import tqdm
 import pickle
 from  collections import Counter
-from registers import *
 from memory_profiler import profile
 import gc
 
