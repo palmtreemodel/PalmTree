@@ -8,6 +8,21 @@ You can find pre-trained PalmTree model [here](https://drive.google.com/file/d/1
 please consider citing our paper
 Xuezixiang Li, Yu Qu, and Heng Yin, "PalmTree: Learning an Assembly Language Model for Instruction Embedding", [CCS'2021]
 
+```
+@inproceedings{li2021palmtree,
+  title={Palmtree: learning an assembly language model for instruction embedding},
+  author={Li, Xuezixiang and Qu, Yu and Yin, Heng},
+  booktitle={Proceedings of the 2021 ACM SIGSAC Conference on Computer and Communications Security},
+  pages={3236--3251},
+  year={2021}
+}
+```
+
+
+## Acknowledgement:
+
+This implementation is based on [bert-pytorch](https://github.com/codertimo/BERT-pytorch), we add our training tasks for CFGs and DFGs.
+
 ## Requirements:
 - cuda >= 10.1
 - pytorch >= 1.3.1
@@ -16,12 +31,11 @@ Xuezixiang Li, Yu Qu, and Heng Yin, "PalmTree: Learning an Assembly Language Mod
 ## Updates
 
 ### extrinsic evaluations
-We released code for extrinsic evaluations. But it is not stable yet. Please checkout to the new preview branch.
+We released code for extrinsic evaluations.
 
 Extrinsic evluations including:
 - Gemini
 - EKALVYA
-- DeepVSA
 
 ### intrinsic evaluations
 Intrinsic evlautions including:
