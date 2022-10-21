@@ -9,6 +9,7 @@ import palmtree
 from palmtree import dataset
 from palmtree import trainer
 import pickle as pkl
+import bert_pytorch
 
 print(palmtree.__file__)
 vocab_path = "cdfg_bert_1/vocab"
