@@ -1,0 +1,17 @@
+[project]
+name = "PalmTree"
+version = "0.1.0"
+description = "Create a pyproject.toml file for an existing project."
+license = {file = "LICENSE.txt"}
+readme = "README.md"
+requires-python = ">=3.6"
+
+[project.scripts]
+poetry = "infer_pyproject.cli:main"
+
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3"
+]
+build-backend = "setuptools.build_meta"
