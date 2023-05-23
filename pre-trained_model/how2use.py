@@ -1,4 +1,6 @@
 import os
+import re
+import sys
 from config import *
 from torch import nn
 from scipy.ndimage.filters import gaussian_filter1d
@@ -15,8 +17,11 @@ palmtree = utils.UsableTransformer(
 
 if 'input.asm' in os.listdir():
     text = open('input.asm').readlines()
-    for idx, _ in enumerate(text):
-        text[idx].replace('[', ' [ ').replace(']', ' ] ').replace(',', ' ')
+    for idx, line in enumerate(text):
+        #breakpoint()
+        text[idx] = re.sub(r'([\[\]\-\+])', r' \1 ', line) \
+            .replace(',','') \
+            .strip('\n')
 else:
     text = ["mov rbp rdi",
             "mov ebx 0x1",
