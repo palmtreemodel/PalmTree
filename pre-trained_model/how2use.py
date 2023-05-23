@@ -19,9 +19,11 @@ if 'input.asm' in os.listdir():
     text = open('input.asm').readlines()
     for idx, line in enumerate(text):
         #breakpoint()
-        text[idx] = re.sub(r'([\[\]\-\+])', r' \1 ', line) \
+        text[idx] = re.sub(r'([\[\]]|\-0x\w+|\+0x\w+|[\-\+](?!0x))', r' \1 ', line) \
             .replace(',','') \
             .strip('\n')
+    print(text)
+    sys.exit(0)
 else:
     text = ["mov rbp rdi",
             "mov ebx 0x1",
