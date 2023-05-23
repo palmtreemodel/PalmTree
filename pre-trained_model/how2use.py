@@ -8,17 +8,23 @@ import numpy as np
 import eval_utils as utils
 
 
-palmtree = utils.UsableTransformer(model_path="./palmtree/transformer.ep19", vocab_path="./palmtree/vocab")
+palmtree = utils.UsableTransformer(
+    model_path="./palmtree/transformer.ep19", vocab_path="./palmtree/vocab")
 
 # tokens has to be seperated by spaces.
 
-text = ["mov rbp rdi", 
-        "mov ebx 0x1", 
-        "mov rdx rbx", 
-        "call memcpy", 
-        "mov [ rcx + rbx ] 0x0", 
-        "mov rcx rax", 
-        "mov [ rax ] 0x2e"]
+if 'input.asm' in os.listdir():
+    text = open('input.asm').readlines()
+    for idx, _ in enumerate(text):
+        text[idx].replace('[', ' [ ').replace(']', ' ] ').replace(',', ' ')
+else:
+    text = ["mov rbp rdi",
+            "mov ebx 0x1",
+            "mov rdx rbx",
+            "call memcpy",
+            "mov [ rcx + rbx ] 0x0",
+            "mov rcx rax",
+            "mov [ rax ] 0x2e"]
 
 # it is better to make batches as large as possible.
 embeddings = palmtree.encode(text)
