@@ -1,3 +1,4 @@
+import argparse
 import os
 import re
 import sys
@@ -15,8 +16,13 @@ palmtree = utils.UsableTransformer(
 
 # tokens has to be seperated by spaces.
 
-if 'input.asm' in os.listdir():
-    text = open('input.asm').readlines()
+
+parser = argparse.ArgumentParser()
+parser.add_argument('-c','--customassembly', help='filename of file to read in')
+args = parser.parse_args()
+breakpoint()
+if args.customassembly in os.listdir():
+    text = open(args.customassembly).readlines()
     for idx, line in enumerate(text):
         #breakpoint()
         text[idx] = re.sub(r'([\[\]]|\-0x\w+|\+0x\w+|[\-\+](?!0x))', r' \1 ', line) \
