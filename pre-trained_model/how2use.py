@@ -20,7 +20,6 @@ palmtree = utils.UsableTransformer(
 parser = argparse.ArgumentParser()
 parser.add_argument('-c','--customassembly', help='filename of file to read in')
 args = parser.parse_args()
-breakpoint()
 if args.customassembly in os.listdir():
     text = open(args.customassembly).readlines()
     for idx, line in enumerate(text):
@@ -28,8 +27,6 @@ if args.customassembly in os.listdir():
         text[idx] = re.sub(r'([\[\]]|\-0x\w+|\+0x\w+|[\-\+](?!0x))', r' \1 ', line) \
             .replace(',','') \
             .strip('\n')
-    print(text)
-    sys.exit(0)
 else:
     text = ["mov rbp rdi",
             "mov ebx 0x1",
